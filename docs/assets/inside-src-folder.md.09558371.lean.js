@@ -1,0 +1,1 @@
+import{_ as e,c as o,o as s,a as t}from"./app.78062c90.js";const u=JSON.parse('{"title":"Inside src folder","description":"","frontmatter":{},"headers":[],"relativePath":"inside-src-folder.md"}'),r={name:"inside-src-folder.md"},d=t("",3),i=[d];function n(c,a,l,_,p,h){return s(),o("div",null,i)}const m=e(r,[["render",n]]);export{u as __pageData,m as default};

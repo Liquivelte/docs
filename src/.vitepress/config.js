@@ -5,6 +5,7 @@ export default {
   description: 'Liquivelte Documentation & Examples',
   lang: 'en-US',
   outDir: '../docs',
+  base: '/docs',
   themeConfig: {
       logo: '/liquivelte.png',
       sidebar: [
