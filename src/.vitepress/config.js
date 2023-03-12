@@ -3,9 +3,18 @@ const path = require('path');
 export default {
   title: 'Liquivelte | Docs',
   description: 'Liquivelte Documentation & Examples',
+  logo: 'liquivelte.svg',
   lang: 'en-US',
   outDir: '../docs',
   base: '/docs',
+  head: [[
+    'link',
+    {
+      rel: 'icon', 
+      type: 'image/svg',
+      href:'liquivelte.svg'
+    }
+  ]],
   themeConfig: {
       logo: '/liquivelte.png',
       sidebar: [
