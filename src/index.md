@@ -1,4 +1,4 @@
-# <img src="/liquid.png" width="50" style="display: inline; vertical-align: bottom;" > Liquid + <img src="/svelte.png" width="50" style="display: inline; vertical-align: bottom;" > Svelte = <img src="/liquivelte.png" width="50" style="display: inline; vertical-align: bottom;" > Liquivelte
+# <img src="liquid.png" width="50" style="display: inline; vertical-align: bottom;" > Liquid + <img src="svelte.png" width="50" style="display: inline; vertical-align: bottom;" > Svelte = <img src="liquivelte.png" width="50" style="display: inline; vertical-align: bottom;" > Liquivelte
 
 Liquivelte is a way to use [Svelte](https://svelte.dev/) in [Shopify theme development](https://shopify.dev/docs/themes). It has a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=malipetek.liquivelte) that carries out a build process and outputs Liquid + JS and CSS.
 

@@ -1,4 +1,4 @@
-<img alt="liquivelte icon" src="docs/liquivelte.png" width="100px" />
+<img alt="liquivelte icon" src="./src/public/liquivelte.png" width="100px" />
 
 # Liquivelte (Liquid + Svelte)
 
