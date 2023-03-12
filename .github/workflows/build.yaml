@@ -10,6 +10,11 @@ on:
       - "**.json"
   workflow_dispatch:
 name: 🚀 Build page
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   build:
     name: 🎉 Build & deploy
