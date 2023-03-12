@@ -1,5 +1,11 @@
 const path = require('path');
 
+let ogprefix = 'og: http://ogp.me/ns#';
+let title = 'Liquivelte';
+let description = 'Use Svelte in your Shopify theme development.';
+let color = '#a33015';
+let author = 'Muhammet Ali Petek';
+
 export default {
   title: 'Liquivelte | Docs',
   description: 'Liquivelte Documentation & Examples',
@@ -23,10 +29,22 @@ export default {
     {
       src: 'gtag_init.js',
       async: ''
-  }]
+      }],
+    ['meta', { prefix: ogprefix, property: 'og:title', content: title }],
+    ['meta', { prefix: ogprefix, property: 'twitter:title', content: title }],
+    ['meta', { prefix: ogprefix, property: 'og:type', content: 'article' }],
+    ['meta', { prefix: ogprefix, property: 'og:url', content: 'https://liquivelte.js.org' }],
+    ['meta', { prefix: ogprefix, property: 'og:description', content: description }],
+    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://liquivelte.js.org/liquivelte.svg' }],
+    ['meta', { prefix: ogprefix, property: 'og:article:author', content: author }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: color }],
   ],
   themeConfig: {
-      logo: '/liquivelte.png',
+    logo: '/liquivelte.png',
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/malipetek/liquivelte-vscode' }
+    ],
       sidebar: [
         {
           text: 'Setup',
