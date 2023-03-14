@@ -86,7 +86,7 @@ This liquid code will end up in liquid part only. For example we can calculate s
 </style>
 <div class="product-card">
   {% if product.available %}
-    <Badge> In Stock </Badge>
+    <PBadge> In Stock </PBadge>
   {% endif %}
 </div>
 ```

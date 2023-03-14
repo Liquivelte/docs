@@ -1,5 +1,4 @@
 const path = require('path');
-
 let ogprefix = 'og: http://ogp.me/ns#';
 let title = 'Liquivelte';
 let description = 'Use Svelte in your Shopify theme development.';
@@ -9,7 +8,19 @@ let author = 'Muhammet Ali Petek';
 export default {
   title: 'Liquivelte | Docs',
   description: 'Liquivelte Documentation & Examples',
-  // logo: 'liquivelte.svg',
+  /** @type {import('vite').UserConfig} */
+  vite: {
+    // Vite config options
+    build: {
+      minify: false,
+      rollupOptions: {
+        output: {
+          manualChunks: {}
+        }
+      }
+    }
+  },
+  logo: 'liquivelte.svg',
   lang: 'en-US',
   srcDir: '.',
   outDir: '../build',
