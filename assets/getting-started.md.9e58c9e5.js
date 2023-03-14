@@ -1,0 +1,15 @@
+import { _ as _export_sfc, c as createElementBlock, o as openBlock, a as createStaticVNode } from "./chunks/plugin-vue_export-helper.14ae889d.js";
+const __pageData = JSON.parse('{"title":"Getting Started with Liquivelte","description":"","frontmatter":{},"headers":[{"level":2,"title":"Prerequisities:","slug":"prerequisities","link":"#prerequisities","children":[]},{"level":2,"title":"Have a src folder","slug":"have-a-src-folder","link":"#have-a-src-folder","children":[]}],"relativePath":"getting-started.md"}');
+const _sfc_main = { name: "getting-started.md" };
+const _hoisted_1 = /* @__PURE__ */ createStaticVNode('<h1 id="getting-started-with-liquivelte" tabindex="-1">Getting Started with Liquivelte <a class="header-anchor" href="#getting-started-with-liquivelte" aria-hidden="true">#</a></h1><h2 id="prerequisities" tabindex="-1">Prerequisities: <a class="header-anchor" href="#prerequisities" aria-hidden="true">#</a></h2><ul><li><a href="https://code.visualstudio.com/download" target="_blank" rel="noreferrer">VSCode</a></li><li><a href="https://marketplace.visualstudio.com/items?itemName=malipetek.liquivelte" target="_blank" rel="noreferrer">Liquivelte VSCode extension</a></li><li><a href="https://shopify.dev/docs/themes/getting-started/create" target="_blank" rel="noreferrer">Shopify Theme Development Setup</a></li></ul><h2 id="have-a-src-folder" tabindex="-1">Have a <code>src</code> folder <a class="header-anchor" href="#have-a-src-folder" aria-hidden="true">#</a></h2><ol><li>Once you have your theme setup, also initialize your project as a node project.</li></ol><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark" tabindex="0"><code><span class="line"><span style="color:#e1e4e8;">npm init -y</span></span>\n<span class="line"><span style="color:#e1e4e8;"></span></span></code></pre></div><ol start="2"><li><p>Create a <code>src</code> folder.</p></li><li><p>Create a <code>tailwind.config.js</code> file in project root (optional).</p></li><li><p>Ignore those in <code>.shopifyignore</code> like so:</p></li></ol><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark" tabindex="0"><code><span class="line"><span style="color:#e1e4e8;">node_modules/**</span></span>\n<span class="line"><span style="color:#e1e4e8;">src/**</span></span>\n<span class="line"><span style="color:#e1e4e8;">package.json</span></span>\n<span class="line"><span style="color:#e1e4e8;">tailwind.config.js</span></span>\n<span class="line"><span style="color:#e1e4e8;"></span></span>\n<span class="line"><span style="color:#e1e4e8;"></span></span></code></pre></div>', 8);
+const _hoisted_9 = [
+  _hoisted_1
+];
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", null, _hoisted_9);
+}
+const gettingStarted = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
+export {
+  __pageData,
+  gettingStarted as default
+};

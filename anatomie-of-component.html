@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Anatomie of a Liquivelte Component | Liquivelte | Docs</title>
     <meta name="description" content="Liquivelte Documentation & Examples">
-    <link rel="preload stylesheet" href="/assets/style.03c7c8ea.css" as="style">
-    <link rel="modulepreload" href="/assets/chunks/theme.08cd7159.js">
-    <link rel="modulepreload" href="/assets/app.ebc0e2af.js">
-    <link rel="modulepreload" href="/assets/anatomie-of-component.md.3481d69f.lean.js">
+    <link rel="preload stylesheet" href="/assets/style.f92d1132.css" as="style">
+    <link rel="modulepreload" href="/assets/chunks/plugin-vue_export-helper.14ae889d.js">
+    <link rel="modulepreload" href="/assets/anatomie-of-component.md.fad9c143.lean.js">
+    <link rel="modulepreload" href="/assets/app.3343aa1d.js">
     
     <link rel="icon" type="image/svg" href="liquivelte.svg">
   <script src="https://www.googletagmanager.com/gtag/js?id=G-C8TE7C6S3H" async=""></script>
@@ -66,7 +66,7 @@
 <span class="line"><span style="color:#E1E4E8;">&lt;/</span><span style="color:#85E89D;">style</span><span style="color:#E1E4E8;">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8;">&lt;</span><span style="color:#85E89D;">div</span><span style="color:#E1E4E8;"> </span><span style="color:#B392F0;">class</span><span style="color:#E1E4E8;">=</span><span style="color:#9ECBFF;">&quot;product-card&quot;</span><span style="color:#E1E4E8;">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8;">  {% </span><span style="color:#F97583;">if</span><span style="color:#E1E4E8;"> product.available %}</span></span>
-<span class="line"><span style="color:#E1E4E8;">    &lt;</span><span style="color:#79B8FF;">Badge</span><span style="color:#E1E4E8;">&gt; In Stock &lt;/</span><span style="color:#79B8FF;">Badge</span><span style="color:#E1E4E8;">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8;">    &lt;</span><span style="color:#79B8FF;">PBadge</span><span style="color:#E1E4E8;">&gt; In Stock &lt;/</span><span style="color:#79B8FF;">PBadge</span><span style="color:#E1E4E8;">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8;">  {% </span><span style="color:#F97583;">endif</span><span style="color:#E1E4E8;"> %}</span></span>
 <span class="line"><span style="color:#E1E4E8;">&lt;/</span><span style="color:#85E89D;">div</span><span style="color:#E1E4E8;">&gt;</span></span>
 <span class="line"></span></code></pre></div><h3 id="import-variables-from-theme" tabindex="-1">Import variables from &#39;theme&#39; <a class="header-anchor" href="#import-variables-from-theme" aria-hidden="true">#</a></h3><p>If you import something from <code>&#39;theme&#39;</code>, it will output that liquid variable to page with <code>| json</code> filter and pass it to Svelte when initializing the component.</p><h4 id="import-2nd-depth-object-properties-from-theme" tabindex="-1">Import 2nd depth object properties from &#39;theme&#39; <a class="header-anchor" href="#import-2nd-depth-object-properties-from-theme" aria-hidden="true">#</a></h4><p>Some big objects are not json serializable in Shopify liquid. For example lets say <code>section</code>, you can import <code>section.settings</code> instead of <code>section</code>. However defining section in the javascript context is on you.</p><p>For example:</p><div class="language-liquivelte"><button title="Copy Code" class="copy"></button><span class="lang">liquivelte</span><pre class="shiki github-dark" tabindex="0"><code><span class="line"><span style="color:#E1E4E8;">&lt;</span><span style="color:#85E89D;">script</span><span style="color:#E1E4E8;">&gt;</span></span>
@@ -77,8 +77,8 @@
 <span class="line"><span style="color:#F97583;">import</span><span style="color:#E1E4E8;"> section.settings </span><span style="color:#F97583;">from</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">&#39;theme&#39;</span><span style="color:#E1E4E8;">;</span></span>
 <span class="line"><span style="color:#E1E4E8;">&lt;/</span><span style="color:#85E89D;">script</span><span style="color:#E1E4E8;">&gt;</span></span>
 <span class="line"></span></code></pre></div><h2 id="liquid-limitations" tabindex="-1">Liquid Limitations <a class="header-anchor" href="#liquid-limitations" aria-hidden="true">#</a></h2></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-ae7d01fc data-v-2813752b><!----><div class="prev-next" data-v-2813752b><div class="pager" data-v-2813752b><a class="pager-link prev" href="/liquivelte-files.html" data-v-2813752b><span class="desc" data-v-2813752b>Previous page</span><span class="title" data-v-2813752b>Liquivelte file type</span></a></div><div class="has-prev pager" data-v-2813752b><!----></div></div></footer><!--[--><!--]--></div></div></div></div></div><!----><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"liquivelte-files.md\":\"340d3e3e\",\"anatomie-of-component.md\":\"3481d69f\",\"index.md\":\"24aa42ef\",\"getting-started.md\":\"8e73dd6a\",\"inside-src-folder.md\":\"36be1edc\"}")</script>
-    <script type="module" async src="/assets/app.ebc0e2af.js"></script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"6284e9a2\",\"getting-started.md\":\"9e58c9e5\",\"inside-src-folder.md\":\"b11b0055\",\"anatomie-of-component.md\":\"fad9c143\",\"liquivelte-files.md\":\"9f806601\"}")</script>
+    <script type="module" async src="/assets/app.3343aa1d.js"></script>
     
   </body>
 </html>
