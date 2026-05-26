@@ -1,115 +1,82 @@
----
-outline: deep
----
+# Component Anatomy
 
-# Anatomie of a Liquivelte Component
+Liquivelte v4 components are Shopify sections, snippets, or blocks that can also participate in Svelte hydration.
 
-Anatomie of a liquivelte component is very similar to a Svelte Component with a few exceptions. Template part is mostly liquid and should be valid. 
+## Script
 
-Meaning 2 contexts should match, for ex if you have a `product` variable in product page template, you also should have `product` imported into js context because Svelte will do some renders with the data we provide.
+Use `<script>` for browser imports and state. Theme data should come from Liquid-rendered markup or compact data islands.
 
-All the point here is to get SSR html via liquid and Svelte hydrates the markup when page loads.
-
-## Differences from Svelte
-
-### Expressions are liquid like but always with a hyphen
-
-For ex in a svelte component you would output an expression like this.
 ```svelte
-<div> { count } </div>
-```
-In liquivelte you do it like liquid but always with hyphens.
-```liquivelte
-<div > {{- count -}} </div>
-```
-::: details Why hyphens are necessary?
-  ::: v-pre
-  The reason for the hyphens is `{{ ... }}` is a valid svelte expression outputting an object. You can use svelte expressions as well if you do not care about the initial rendering of that part. 
-  ::: 
-::: details What happens if I just use { ... }?
-  ::: v-pre
-  Nothing, when page loads liquid will output { ... } without any evaluation and then Svelte will replace it with evaluated value when hydrating. If it is something that is not visible on load, it does not matter. Actually if you are going for lets say a popup that opens on click, you can import that as a Svelte component and pass values to it from props.
-  ::: 
-
-### Expressions have some liquid filters available
-Expressions that are with hyphens are subject to a transformation, which also transforms liquid filters to function calls of a special import `liquid`. Example: 
-```liquivelte
-<div class="text-theme text-base">
-  {{- product.price | money -}}
-</div> 
-```
-gets transformed into
-```svelte
-<div class="text-theme text-base">
-  { liquid.money(product.price) }
-</div> 
-```
-
-### Control flow tags are liquid like
-```liquivelte
-{% if section.settings.logo != blank %}
-  <img src="{{- section.settings.logo -}}" alt="Store logo" />
-{% endif %}
-```
-This will transform into:
-```svelte
-{#if section.settings.logo != undefined }
-  <img src="{{- section.settings.logo -}}" alt="Store logo" />
-{/if}
-```
-
-
-
-### `{% liquid ... %}` at the top of the component
-This liquid code will end up in liquid part only. For example we can calculate something in liquid to import later.
-
-```liquivelte
-{% liquid 
-  if block
-    assign settings = block.settings
-  else
-    assign settings = section.settings
-  endif
-%}
 <script>
-  import settings from 'theme';
-  import section.blocks from 'theme';
+  import ProductCarousel from './src/components/ProductCarousel.svelte';
 </script>
+```
 
-<style>
-  div {
-    display: block;
-  }
-  .product-card {
-    background-color: #ddd;
-  }
-</style>
-<div class="product-card">
-  {% if product.available %}
-    <PBadge> In Stock </PBadge>
-  {% endif %}
+Do not make `<script>` the only place where important product, section, cart, or menu data exists.
+
+## Markup
+
+Markup should be valid Shopify Liquid:
+
+```liquid
+{% for product in collection.products %}
+  {% render 'product-card', product: product %}
+{% endfor %}
+```
+
+The generated Liquid is what Shopify renders. The generated Svelte output is for hydration and browser behavior.
+
+## Schema
+
+Sections keep normal Shopify schema:
+
+```liquid
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ]
+}
+{% endschema %}
+```
+
+Schema belongs to Shopify and must remain available in generated Liquid.
+
+## Enhancement island
+
+For a browser-only interaction, combine Liquid fallback, mount target, and data template:
+
+```liquid
+<div data-carousel>
+  <div data-carousel-fallback>
+    {% for product in section.settings.collection.products limit: 8 %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  </div>
+
+  <div data-carousel-island aria-hidden="true"></div>
+
+  <template data-carousel-data>
+    [
+      {% for product in section.settings.collection.products limit: 8 %}
+        {
+          "id": {{ product.id | json }},
+          "title": {{ product.title | json }},
+          "url": {{ product.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  </template>
 </div>
 ```
 
-### Import variables from 'theme'
-If you import something from `'theme'`, it will output that liquid variable to page with `| json` filter and pass it to Svelte when initializing the component.
+Then `main.js` mounts the Svelte component after parsing the template.
 
-#### Import 2nd depth object properties from 'theme'
-Some big objects are not json serializable in Shopify liquid. For example lets say `section`, you can import `section.settings` instead of `section`. However defining section in the javascript context is on you.
+## Rule of thumb
 
-For example:
-```liquivelte
-<script>
-import section.settings from 'theme';
-</script>
-```
-Will throw an error because `section` is not defined. 
-Do this instead:
-```liquivelte
-<script>
-const section = {};
-import section.settings from 'theme';
-</script>
-```
-
-## Liquid Limitations
+If a customer or merchant needs it to understand the page, put it in Liquid. If it is transient browser behavior, put it in Svelte.

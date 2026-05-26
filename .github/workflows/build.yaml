@@ -4,48 +4,41 @@ on:
       - "main"
     paths:
       - "**.md"
+      - "**.yaml"
       - "**.js"
       - "**.css"
       - "**.postcss"
       - "**.json"
   workflow_dispatch:
-name: 🚀 Build page
+name: Build docs
 
 permissions:
-  contents: read
-  pull-requests: write
+  contents: write
 
 jobs:
   build:
-    name: 🎉 Build & deploy
+    name: Build and deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-    - name: 📦 Install Node.js
-      uses: actions/setup-node@v2
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: '16.x'
+        node-version: '20.x'
+        cache: yarn
 
     - name: Install dependencies
-      run: yarn install
+      run: yarn install --frozen-lockfile
 
-    - name: set git email
-      run:  git config user.email "support+actions@github.com"
-
-    - name: set git user
-      run: git config user.name "Github Actions Bot"
-
-    - name: Build ⚙️
+    - name: Build
       run: yarn build
-      env:
-        CI: false
-    
+
     - name: Deploy to GitHub Pages
-      uses: Cecilapp/GitHub-Pages-deploy@v3
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        email: support+actions@github.com
-        branch: gh-pages
-        build_dir: build
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./build
+        cname: liquivelte.js.org

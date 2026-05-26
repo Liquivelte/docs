@@ -1,0 +1,3 @@
+display_name: Liquivelte v4 Setup
+short_description: Set up Liquivelte v4 compiler projects and verify generated Shopify Liquid.
+default_prompt: Use this skill to add or debug Liquivelte v4 compiler setup in a Shopify theme. Keep Liquid as the SSR source of truth, use Svelte only for browser-owned interactivity, run the build, and inspect generated Liquid before finishing.
