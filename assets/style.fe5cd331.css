@@ -4141,3 +4141,9 @@ html:not(.dark) .VPImage.dark[data-v-6db2186b] {
   margin: 0 auto;
   max-width: 1152px;
 }
+.button {
+  padding: .5rem 2rem;
+  font-size: 1rem;
+  border: 1px solid;
+  border-radius: 8px;
+}
